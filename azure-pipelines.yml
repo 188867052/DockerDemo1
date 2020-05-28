@@ -49,4 +49,16 @@ steps:
   inputs:
     script: 'docker push 542153354/dockerdemo:v1.0'
 
+- task: CmdLine@2
+  inputs:
+    script: 'ssh ubuntu@$(TencentCloudIP) -p $(TencentCloudPassword)'
+
+- task: CmdLine@2
+  inputs:
+    script: 'docker pull 542153354/dockerdemo:v1.0'
+    
+- task: CmdLine@2
+  inputs:
+    script: 'docker run -it -p 8080:80 542153354/dockerdemo:v1.0 /bin/sh'
+
 
