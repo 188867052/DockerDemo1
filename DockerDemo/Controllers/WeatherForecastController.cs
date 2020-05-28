@@ -31,7 +31,7 @@ namespace DockerDemo.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = AppContext.BaseDirectory
+                Summary = nameof(Summaries)
             })
             .ToArray();
         }
