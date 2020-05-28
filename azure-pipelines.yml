@@ -51,7 +51,11 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'ssh ubuntu@$(TencentCloudIP) -p $(TencentCloudPassword)'
+    script: 'sudo apt-get install sshpass'
+
+- task: CmdLine@2
+  inputs:
+    script: 'sshpass -p $(TencentCloudPassword) ssh ubuntu@$(TencentCloudIP)'
 
 - task: CmdLine@2
   inputs:
